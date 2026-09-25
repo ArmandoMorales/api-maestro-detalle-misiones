@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
+const { version } = require('./package.json');
+const iniciado = new Date().toISOString();
+
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '100kb' }));
@@ -9,6 +12,8 @@ app.use(express.json({ limit: '100kb' }));
 app.get('/', (req, res) => {
   res.json({
     api: 'API Maestro-Detalle de Misiones',
+    version,
+    iniciado,
     endpoints: {
       'POST /api/registro': 'Registra/actualiza estudiante y sus misiones',
       'GET /api/misiones': 'Catálogo de misiones',
