@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablero de Misiones</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Tablero de Misiones</h1>
+      <p>API Maestro-Detalle · Avance de cada estudiante</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="stats">
+      <div class="stat"><span class="stat-label">Estudiantes</span><span id="statTotal" class="stat-value">–</span></div>
+      <div class="stat"><span class="stat-label">Promedio de avance</span><span id="statPromedio" class="stat-value">–</span></div>
+      <div class="stat"><span class="stat-label">Al 100 %</span><span id="statCompletos" class="stat-value">–</span></div>
+      <div class="stat"><span class="stat-label">Misiones en catálogo</span><span id="statMisiones" class="stat-value">–</span></div>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="tablero">Tablero</button>
+      <button class="tab" data-tab="catalogo">Catálogo</button>
+      <button class="tab" data-tab="registro">Enviar JSON</button>
+    </nav>
+
+    <section id="tab-tablero" class="panel">
+      <div class="toolbar">
+        <input id="buscar" type="search" placeholder="Buscar por carnet o nombre…">
+        <button id="recargar" class="btn secondary">Recargar</button>
+      </div>
+      <div id="estado" class="estado">Cargando…</div>
+      <div id="listaEstudiantes" class="cards"></div>
+    </section>
+
+    <section id="tab-catalogo" class="panel hidden">
+      <table class="tabla">
+        <thead><tr><th>ID</th><th>Misión</th><th>Descripción</th></tr></thead>
+        <tbody id="tablaMisiones"></tbody>
+      </table>
+    </section>
+
+    <section id="tab-registro" class="panel hidden">
+      <p class="hint">Envía el JSON maestro-detalle a <code>POST /api/registro</code>. Si el carnet no existe se inserta; si existe se actualiza.</p>
+      <textarea id="jsonInput" spellcheck="false"></textarea>
+      <div class="toolbar">
+        <button id="enviar" class="btn">Enviar</button>
+        <button id="ejemplo" class="btn secondary">Cargar ejemplo</button>
+      </div>
+      <pre id="respuesta" class="respuesta hidden"></pre>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    API: <span id="apiUrl"></span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
