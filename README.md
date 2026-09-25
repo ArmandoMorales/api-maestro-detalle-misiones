@@ -8,9 +8,10 @@ el **maestro** es el estudiante y el **detalle** son sus misiones con estado `tr
 Incluye un frontend con un tablero del avance de cada estudiante.
 
 - **Frontend:** https://armandomorales.github.io/api-maestro-detalle-misiones/
-- **API:** https://api-maestro-detalle-misiones.onrender.com
+- **API:** https://api-maestro-detalle-misiones.vercel.app
 
-> El backend está en el plan gratuito de Render: tras un rato sin uso se "duerme" y la primera petición tarda ~40 s.
+El frontend se publica en GitHub Pages (workflow en `.github/workflows/pages.yml`) y el backend en Vercel
+(`backend/vercel.json`); las credenciales de la BD están como variables de entorno en Vercel, no en el repositorio.
 
 ## Endpoints
 
@@ -74,7 +75,7 @@ npm start              # http://localhost:3000
 ```
 
 El frontend es estático: abre `frontend/` con cualquier servidor (por ejemplo, Live Server en `http://localhost:5500`).
-`frontend/config.js` usa `localhost:3000` en local y la URL de Render cuando está publicado.
+`frontend/config.js` usa `localhost:3000` en local y la URL de Vercel cuando está publicado.
 
 ## Estructura
 

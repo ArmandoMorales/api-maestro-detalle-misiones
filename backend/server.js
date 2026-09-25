@@ -38,5 +38,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ ok: false, error: 'SERVIDOR', mensaje: 'Error interno del servidor.' });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`API escuchando en http://localhost:${PORT}`));
+// En local se levanta el servidor; en Vercel se exporta la app como función
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`API escuchando en http://localhost:${PORT}`));
+}
+
+module.exports = app;

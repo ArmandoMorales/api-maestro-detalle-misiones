@@ -27,7 +27,7 @@ async function api(path, options) {
 }
 
 async function cargarEstudiantes() {
-  $('#estado').textContent = 'Cargando… (si el servidor estaba dormido puede tardar ~40 s)';
+  $('#estado').textContent = 'Cargando…';
   $('#estado').classList.remove('hidden');
   try {
     const { ok, data } = await api('/api/estudiantes');
